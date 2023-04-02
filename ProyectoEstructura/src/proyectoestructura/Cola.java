@@ -21,26 +21,12 @@ public class Cola {
             ultimo=nuevoNodo;
         }
     }
-    public Personaje remover() {
-        if (frente == null) {
-            return null;
-        }
-
-        Personaje personaje = frente.getDato();
-        frente = frente.getSiguiente();
-
-        if (frente == null) {
-            ultimo = null;
-        }
-
-        return personaje;
-    }
 
     public String imprimir(){
         String s="";
         Nodo aux=frente;
         while(aux!=null){
-            s+=aux.getDato().getTipo()+"\n";
+            s+=aux.getDato().getNombre()+" "+aux.getDato().getFuerza()+"\n";
             aux=aux.getSiguiente();
         }
         return s;
