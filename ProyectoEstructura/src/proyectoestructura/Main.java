@@ -1,5 +1,6 @@
 package proyectoestructura;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -21,13 +22,33 @@ public class Main {
         //Personaje personajeMovible = new Mago("Merlin",5);
         //Personaje personajeMovible = new Caballero("Arturo",5);
         Personaje personajeMovible = new Arquero("Ramiro",5);
+        Personaje personajeAleatorio = personajeMovible;
+        //elegir un personaje aleorio
+        Random random = new Random();
+        
+        while (personajeAleatorio == personajeMovible) {
+            int indice = random.nextInt(3);
+            if (indice == 0) {
+                personajeAleatorio = new Arquero("Ramiro",5);
+            } else if (indice == 1) {
+                personajeAleatorio = new Caballero("Ramiro",5);
+            } else {
+                personajeAleatorio = new Mago("Ramiro",5);
+            }
+        }
+        
 
         String mago = "M";
         String caballero = "C";
         String arquero = "A";
         
+        String magoc = "M";
+        String caballeroc = "C";
+        String arqueroc = "A";
+        
         int posicionFila = 8;
         int posicionColumna = 0;
+        int posicionAleatorio = 9;
 
         int filaActual = 0;
         int columnaActual = 0;
