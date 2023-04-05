@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)throws InterruptedException {
         
         //Prueba para ingresar e imprimir personajes en una cola
         
@@ -17,88 +17,90 @@ public class Main {
         */
         
         //Prueba para crear una matriz de personajes
-        Personaje[][] matrizPersonajes = new Personaje[10][10];
+        Personaje[][] matriz = new Personaje[5][10];
         
         //Personaje personajeMovible = new Mago("Merlin",5);
         //Personaje personajeMovible = new Caballero("Arturo",5);
-        Personaje personajeMovible = new Arquero("Ramiro",5);
-        Personaje personajeAleatorio = personajeMovible;
+        Personaje personajeMovible = new Arquero("C",6);
+        Personaje personaje2 = personajeMovible;
         //elegir un personaje aleorio
         Random random = new Random();
-        
-        while (personajeAleatorio == personajeMovible) {
+        while ( personaje2 == personajeMovible) {
             int indice = random.nextInt(3);
             if (indice == 0) {
-                personajeAleatorio = new Arquero("Ramiro",5);
+                personaje2 = new Arquero("A", 5);
             } else if (indice == 1) {
-                personajeAleatorio = new Caballero("Ramiro",5);
+                personaje2 = new Caballero("C", 6);
             } else {
-                personajeAleatorio = new Mago("Ramiro",5);
+                personaje2 = new Mago("M", 7);
             }
         }
-        
-
-        String mago = "M";
-        String caballero = "C";
-        String arquero = "A";
-        
-        String magoc = "M";
-        String caballeroc = "C";
-        String arqueroc = "A";
-        
-        int posicionFila = 8;
-        int posicionColumna = 0;
-        int posicionAleatorio = 9;
-
-        int filaActual = 0;
-        int columnaActual = 0;
-        
-        // Mover el personaje desde la primera posición hasta la última
-      for (int i = posicionFila; i < matrizPersonajes.length; i++) {
-        for (int j = posicionColumna; j < matrizPersonajes[i].length; j++) {
-        // Verificar si la posición actual es la última
-         if (filaActual < 0 || filaActual >= matrizPersonajes.length ||
-            columnaActual < 0 || columnaActual >= matrizPersonajes[i].length) {
-            break;
+        //Aqui podemos elegir cual de los caminos ingresar el personaje
+        int op=1;
+        // Insertar los personajes en la matriz
+        if (op==1) {
+            matriz[0][0] = personajeMovible;
+            matriz[0][9] = personaje2;
+        // Mover los personajes hacia el centro de la matriz
+        for (int i = 1; i < 5; i++) {
+            matriz[0][i] = personajeMovible;
+            matriz[0][9-i] = personaje2;
+            imprimirPersonajesMovibles(matriz,i);
+            Thread.sleep(2000);
         }
-    
-        // Verificar si la posición actual es la primera
-        if (i == 0 && j == 0) {
-            // Es la primera posición, mover el personaje aquí
-            matrizPersonajes[i][j] = personajeMovible;
-            filaActual = i;
-            columnaActual = j;
+        // Evaluar el enfrentamiento de los personajes
+        if (personajeMovible.getFuerza() > personaje2.getFuerza()) {
+            System.out.println(personajeMovible.getNombre() + " gana el enfrentamiento");
+        } else if (personaje2.getFuerza() > personajeMovible.getFuerza()) {
+            System.out.println(personaje2.getNombre() + " gana el enfrentamiento");
         } else {
-            // Es otra posición, mover el personaje aquí y esperar 2 segundos
-            matrizPersonajes[filaActual][columnaActual] = null;
-            matrizPersonajes[i][j] = personajeMovible;
-            filaActual = i;
-            columnaActual = j;
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            System.out.println("Empate en el enfrentamiento");
         }
         
-        // Imprimir la matriz en la consola
-        System.out.println("------------------------");
-        for (int k = 0; k < matrizPersonajes.length; k++) {
-            for (int l = 0; l < matrizPersonajes[k].length; l++) {
-                if (matrizPersonajes[k][l] == null) {
-                    System.out.print("- ");
-                } else if (matrizPersonajes[k][l] instanceof Mago) {
-                    System.out.print(mago + " ");
-                } else if (matrizPersonajes[k][l] instanceof Caballero) {
-                    System.out.print(caballero + " ");
-                } else if (matrizPersonajes[k][l] instanceof Arquero) {
-                    System.out.print(arquero + " ");
-                }
-            }
-            System.out.println();
+        }else if(op==2){
+            matriz[3][0] = personajeMovible;
+            matriz[3][9] = personaje2;
+            // Mover los personajes hacia el centro de la matriz
+        for (int i = 1; i < 5; i++) {
+            matriz[3][i] = personajeMovible;
+            matriz[3][9-i] = personaje2;
+            imprimirPersonajesMovibles(matriz,i);
+            Thread.sleep(2000);
         }
-        System.out.println("------------------------");
+        // Evaluar el enfrentamiento de los personajes
+        if (personajeMovible.getFuerza() > personaje2.getFuerza()) {
+            System.out.println(personajeMovible.getNombre() + " gana el enfrentamiento");
+        } else if (personaje2.getFuerza() > personajeMovible.getFuerza()) {
+            System.out.println(personaje2.getNombre() + " gana el enfrentamiento");
+        } else {
+            System.out.println("Empate en el enfrentamiento");
+        }
+        }else{
+            System.out.println("La opcion de camino no es valida");
+        }
+        
+}   
+    public static void imprimirPersonajesMovibles(Personaje[][] matriz, int indice) {
+    System.out.println("----------------------------");
+                
+    for (int i = 0; i < matriz.length; i++) {
+        System.out.print("|");
+        for (int j = 0; j < matriz[0].length; j++) {
+            if (matriz[i][j] == null) {
+                    System.out.print("- ");
+                } 
+            else if (i == 0 && (j < indice || j > matriz[0].length-1-indice)) {
+                System.out.print("- ");
+            } else if (matriz[i][j] == null) {
+                System.out.print("- ");
+            } else {
+                System.out.print(matriz[i][j].getNombre() + "(" + matriz[i][j].getFuerza() + ")");
+            }
+        }
+        System.out.println("|");
     }
+    System.out.println("----------------------------");
+}
 }
         
         
@@ -139,6 +141,6 @@ public class Main {
         //j.imprimirMatriz();
      
 */
-    }
     
-}
+    
+
