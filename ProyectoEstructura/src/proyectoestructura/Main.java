@@ -4,39 +4,57 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-
+    private static final int FILAS = 5;
+    private static final int COLUMNAS = 10;
     public static void main(String[] args)throws InterruptedException {
-        
-        //Prueba para ingresar e imprimir personajes en una cola
-        
-        /*Cola cola1 = new Cola();
-        cola1.agregar(new Nodo(new Personaje("Arturo",5)));
-        cola1.agregar(new Nodo(new Personaje("Carlos",5)));
-        cola1.agregar(new Nodo(new Personaje("Ramiro",5)));
-        System.out.println(cola1.imprimir());
-        */
-        
         //Prueba para crear una matriz de personajes
-        Personaje[][] matriz = new Personaje[5][10];
+        Cola colaPersonajes = agregarPersonajesUsuario();
+        Personaje[][] matriz = new Personaje[FILAS][COLUMNAS];
         
-        //Personaje personajeMovible = new Mago("Merlin",5);
-        //Personaje personajeMovible = new Caballero("Arturo",5);
-        Personaje personajeMovible = new Arquero("C",6);
-        Personaje personaje2 = personajeMovible;
-        //elegir un personaje aleorio
-        Random random = new Random();
-        while ( personaje2 == personajeMovible) {
-            int indice = random.nextInt(3);
-            if (indice == 0) {
-                personaje2 = new Arquero("A", 5);
-            } else if (indice == 1) {
-                personaje2 = new Caballero("C", 6);
+        // Pelear hasta que solo quede un personaje en la cola       
+        while (!colaPersonajes.estaVacia()) { 
+         
+           Nodo nodoPersonaje1 = colaPersonajes.atiende();
+           Personaje personaje1 = nodoPersonaje1.getDato();
+           Personaje personaje2 = crearPersonajeAleatorio();
+
+            if (personaje1.getFuerza() > personaje2.getFuerza()) {
+                System.out.println(personaje1.getNombre() + " ha ganado!");
+            } else if (personaje2.getFuerza() > personaje1.getFuerza()) {
+                System.out.println(personaje2.getNombre() + " ha ganado!");
             } else {
-                personaje2 = new Mago("M", 7);
+                System.out.println("¡Empate!");
+            }
+        // Agregar personajes de vuelta a la cola
+            //colaPersonajes.agregar(newNodo(new Personaje(personaje1));
+            //colaPersonajes.agregar(personaje2);
+
+            // Mover personajes hacia el centro
+            for (int i = 0; i < FILAS; i++) {
+                for (int j = 0; j < COLUMNAS / 2; j++) {
+                    if (j == COLUMNAS / 2 - 1) {
+                        matriz[i][j] = personaje1;
+                        matriz[i][COLUMNAS - j - 1] = personaje2;
+                    } else {
+                        matriz[i][j] = matriz[i][j + 1];
+                        matriz[i][COLUMNAS - j - 1] = matriz[i][COLUMNAS - j - 2];
+                    }
+                }
+            }
+
+            // Mostrar la matriz actualizada
+            imprimirPersonajesMovibles(matriz, 5);
+
+            // Esperar 2 segundos
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
+    
         //Aqui podemos elegir cual de los caminos ingresar el personaje
-        int op=1;
+        /*int op=1;
         // Insertar los personajes en la matriz
         if (op==1) {
             matriz[0][0] = personajeMovible;
@@ -48,6 +66,7 @@ public class Main {
             imprimirPersonajesMovibles(matriz,i);
             Thread.sleep(2000);
         }
+        
         // Evaluar el enfrentamiento de los personajes
         if (personajeMovible.getFuerza() > personaje2.getFuerza()) {
             System.out.println(personajeMovible.getNombre() + " gana el enfrentamiento");
@@ -77,31 +96,81 @@ public class Main {
         }
         }else{
             System.out.println("La opcion de camino no es valida");
-        }
+        }*/
         
 }   
+    public static Cola agregarPersonajesUsuario() {
+    Scanner scanner = new Scanner(System.in);
+    Cola cola = new Cola();
+
+    System.out.println("Ingrese los nombres y la fuerza de los personajes que desea agregar:");
+    for (int i = 0; i < 5; i++) {
+        System.out.print("Nombre del personaje " + (i+1) + ": ");
+        String nombre = scanner.next();
+
+        System.out.print("Fuerza del personaje " + (i+1) + ": ");
+        int fuerza = scanner.nextInt();
+
+        Personaje personaje = new Personaje(nombre, fuerza);
+        Nodo nodo = new Nodo(personaje); // crear nuevo Nodo que contenga el Personaje
+        cola.agregar(nodo); // agregar el nuevo Nodo a la cola
+    }
+
+    return cola;
+    }
+    
+    public static Personaje crearPersonajeAleatorio() {
+    Random rand = new Random();
+    int tipo = rand.nextInt(3); // Genera un número aleatorio entre 0 y 2
+    String nombre = "";
+    int fuerza = 0;
+    
+
+    switch (tipo) {
+        case 0: // Arquero
+            nombre = "A";
+            fuerza = 1; // Genera un número aleatorio entre 5 y 9
+            
+            break;
+        case 1: // Caballero
+            nombre = "C";
+            fuerza = 2; // Genera un número aleatorio entre 8 y 13
+            
+            break;
+        case 2: // Mago
+            nombre = "M";
+            fuerza = 3; // Genera un número aleatorio entre 3 y 6
+           
+            break;
+    }
+
+    return new Personaje(nombre, fuerza);
+    }
+    
+    //Este es el imprime que muestra movimiento
     public static void imprimirPersonajesMovibles(Personaje[][] matriz, int indice) {
     System.out.println("----------------------------");
-                
-    for (int i = 0; i < matriz.length; i++) {
+
+        for (int i = 0; i < matriz.length; i++) {
         System.out.print("|");
         for (int j = 0; j < matriz[0].length; j++) {
             if (matriz[i][j] == null) {
-                    System.out.print("- ");
-                } 
-            else if (i == 0 && (j < indice || j > matriz[0].length-1-indice)) {
-                System.out.print("- ");
+            System.out.print("- ");
+            } else if (i == 0 && (j < indice || j > matriz[0].length-1-indice)) {
+            System.out.print("- ");
             } else if (matriz[i][j] == null) {
-                System.out.print("- ");
+            System.out.print("- ");
             } else {
-                System.out.print(matriz[i][j].getNombre() + "(" + matriz[i][j].getFuerza() + ")");
+            System.out.print(matriz[i][j].getNombre() + "(" + matriz[i][j].getFuerza() + ")");
+            matriz[i][j] = null; // establecer la posición actual en null
             }
+                }
+                System.out.println("|");
+                }
+                System.out.println("----------------------------");
         }
-        System.out.println("|");
     }
-    System.out.println("----------------------------");
-}
-}
+
         
         
         
@@ -143,4 +212,3 @@ public class Main {
 */
     
     
-
