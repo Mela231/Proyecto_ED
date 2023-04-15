@@ -26,7 +26,8 @@ public class Juego {
         // Pelear hasta que solo quede un personaje en la cola
        
         
-        while (!colaPersonajes.estaVacia()) { 
+        while ((!colaPersonajes.estaVacia() || !colaPersonajesC.estaVacia())&&
+                (castilloU>0 && castilloC>0)){ 
          
            Nodo nodoPersonaje1 = colaPersonajes.atiende();
            Nodo nodoPersonaje2 = colaPersonajesC.atiende();
@@ -182,14 +183,8 @@ public class Juego {
             }
         }  
         }
-    
-            
-        cont++;
-        if (castilloU <= 0 || castilloC <= 0) {
-                break; // Detener la simulación
-        }
-        }  System.out.println("Ganador");
-    }
+        } cont++; 
+    } System.out.println("Ganador");
     }
     public void camino(){
         
