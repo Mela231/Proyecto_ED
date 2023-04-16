@@ -316,27 +316,33 @@ public class Juego {
         }
     }
     public void imprimirPersonajesMovibles(Personaje[][] matriz, int indice) {
+     
     System.out.println("----------------------------");
 
-        for (int i = 0; i < matriz.length; i++) {
-            System.out.print("|");
+    for (int i = 0; i < matriz.length; i++) {
+        System.out.print("|");
         for (int j = 0; j < matriz[0].length; j++) {
-        if (matriz[i][j] == null) {
+            if (i == 0 && (j == 0 || j == matriz[0].length-1)) {
+                System.out.print("* ");
+            } else if (i == 2 && (j == 0 || j == matriz[0].length-1)) {
+                System.out.print("C ");
+            }else if (i == 3 && (j == 0 || j == matriz[0].length-1)) {
+                System.out.print("* ");
+            }
+            else if (matriz[i][j] == null) {
                 System.out.print("- ");
-        } else if ((i != 1 && i != matriz.length - 1) && (j < indice || j 
-                    > matriz[0].length-1-indice)){
-            System.out.print("- ");
-        } else if (matriz[i][j] == null) {
-                
-        }else {
-            System.out.print(matriz[i][j].getNombre() + "(" + 
-                    matriz[i][j].getFuerza() + ")");
-            matriz[i][j] = null; // establecer la posición actual en null
-        }   
+            } else if ((i != 1 && i != matriz.length - 1) && (j < indice || j 
+                    > matriz[0].length-1-indice)) {
+                System.out.print("- ");
+            } else {
+                System.out.print(matriz[i][j].getNombre() + "(" + 
+                        matriz[i][j].getFuerza() + ")");
+                matriz[i][j] = null; // establecer la posición actual en null
+            }
         }
-            System.out.println("|");
-        }
-        System.out.println("----------------------------");
-        }
+        System.out.println("|");
+    }
+    System.out.println("----------------------------");
+}
     
 }
