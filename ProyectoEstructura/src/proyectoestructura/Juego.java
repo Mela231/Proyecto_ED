@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Juego {
-    //varibles  glovales
+    //varibles  globales
     private int FILAS = 5;
     private int COLUMNAS = 10;
     private int castilloU = 10;
@@ -21,6 +21,7 @@ public class Juego {
          System.out.println("************************************");
          Cola colaPersonajesC = crearPersonajeAleatorio();
          imprimirPrimerosNodos(colaPersonajesC,3);
+         System.out.println("************************************");
          System.out.println("*--------------RONDA "+cont+"-------------*");  
          System.out.println("************************************");
         //Prueba para crear una matriz de personajes
@@ -204,14 +205,17 @@ public class Juego {
     int totalTropas = 0;
     int rondas=4+cont;
     while (totalTropas < rondas) { // se pueden tener como máximo 5 tropas
+        System.out.println("*******Por favor ingresa la primera letra de la "
+                + "tropa que "
+                + "desea en minuscula******");
         System.out.println("Ingrese el tipo de tropa que desea crear: "
                 + "(mago, arquero, caballero)");
         String tipoTropa = scanner.nextLine();
         System.out.println("Ingrese la cantidad de tropas que desea "
-                + "crear de tipo:"+ tipoTropa);
+                + "crear de tipo: "+ tipoTropa);
         int cantidadTropas = scanner.nextInt();
-        System.out.println("Por cual de los dos caminos desea enviar su tropa?"
-                + tipoTropa);
+        System.out.println("Elija un camino Arriba (1)/ Abajo (2)");
+        System.out.println("Escriba un numero 1 o 2:");
         int camino = scanner.nextInt();
         scanner.nextLine(); // limpiar el buffer de entrada
         if (totalTropas + cantidadTropas > rondas) {
