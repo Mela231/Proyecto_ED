@@ -1,10 +1,10 @@
 package proyectoestructura;
-
+// importacion de librerias
 import java.util.Random;
 import java.util.Scanner;
 
 public class Juego {
-    
+    //varibles  glovales
     private int FILAS = 5;
     private int COLUMNAS = 10;
     private int castilloU = 10;
@@ -17,11 +17,14 @@ public class Juego {
     
         while(castilloU>0 && castilloC>0){
          System.out.println("************************************");
+         System.out.println("***************3 TROPAS DEL CPUC**************");
+         System.out.println("************************************");
+         Cola colaPersonajesC = crearPersonajeAleatorio();
+         imprimirPrimerosNodos(colaPersonajesC,3);
          System.out.println("*--------------RONDA "+cont+"-------------*");  
          System.out.println("************************************");
         //Prueba para crear una matriz de personajes
         Cola colaPersonajes = agregarPersonajesUsuario();
-        Cola colaPersonajesC = crearPersonajeAleatorio();
         Personaje[][] matriz = new Personaje[FILAS][COLUMNAS];
         // Pelear hasta que solo quede un personaje en la cola
        
@@ -183,14 +186,18 @@ public class Juego {
             }
         }  
         }
-        } cont++; 
-    } System.out.println("Ganador");
+       
+    } 
+        cont++;
+        }if (castilloU==0) {
+               System.out.println("Ganador el CPU");
+        }
+        else{  System.out.println("Ganador el Usuario");
+            
+        }
+        System.out.println("GAME OVER");
     }
-    public void camino(){
-        
-    }
-    
-    
+  
     public Cola agregarPersonajesUsuario() {
     Scanner scanner = new Scanner(System.in);
     Cola cola=new Cola();
@@ -298,7 +305,16 @@ public class Juego {
     return cola1;
 
     }
-    
+    public void imprimirPrimerosNodos(Cola cola, int cantidadNodos) {
+        Nodo actual = cola.getFrente();
+        int contador = 0;
+        while (actual != null && contador < cantidadNodos) {
+            System.out.println("Tropa"+" "+contador+":"+
+           actual.getDato().getNombre() + " " + actual.getDato().getFuerza());
+            actual = actual.getSiguiente();
+            contador++;
+        }
+    }
     public void imprimirPersonajesMovibles(Personaje[][] matriz, int indice) {
     System.out.println("----------------------------");
 

@@ -4,6 +4,15 @@ public class Cola {
     private Nodo frente;
     private Nodo ultimo;
     private int largo;
+
+    public Nodo getFrente() {
+        return frente;
+    }
+
+    public void setFrente(Nodo frente) {
+        this.frente = frente;
+    }
+    
     
     public Cola() {
         this.frente = null;
