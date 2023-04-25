@@ -13,8 +13,7 @@ public class Juego {
     private int cont=1; 
     
     public void batalla() throws InterruptedException {
-        
-    
+
         while(castilloU>0 && castilloC>0){
          System.out.println("************************************");
          System.out.println("***************3 TROPAS DEL CPUC**************");
@@ -29,7 +28,6 @@ public class Juego {
         Personaje[][] matriz = new Personaje[FILAS][COLUMNAS];
         // Pelear hasta que solo quede un personaje en la cola
        
-        
         while ((!colaPersonajes.estaVacia() || !colaPersonajesC.estaVacia())&&
                 (castilloU>0 && castilloC>0)){ 
          
@@ -196,7 +194,9 @@ public class Juego {
         else{  System.out.println("Ganador el Usuario");
             
         }
-        System.out.println("GAME OVER");
+        System.out.println("********FIN DEL JUEGO**********");
+        VGameOver g=new VGameOver();
+        g.setVisible(true);
     }
   
     public Cola agregarPersonajesUsuario() {
