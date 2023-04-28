@@ -13,7 +13,6 @@ public class Cola {
         this.frente = frente;
     }
     
-    
     public Cola() {
         this.frente = null;
         this.ultimo = null;
@@ -25,7 +24,8 @@ public class Cola {
     }
 
     public void agregar(Nodo nuevoNodo) {
-         if(frente == null){  // significa que la cola esta vacia
+        // significa que la cola esta vacia
+         if(frente == null){  
             frente = nuevoNodo;
             ultimo = nuevoNodo;                    
         } else{

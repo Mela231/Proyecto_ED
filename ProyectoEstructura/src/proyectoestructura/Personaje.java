@@ -43,7 +43,4 @@ public class Personaje {
     public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
     }
-    
-    
-    
 }

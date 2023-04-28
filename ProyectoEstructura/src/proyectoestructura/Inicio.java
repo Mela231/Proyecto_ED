@@ -1,5 +1,4 @@
 package proyectoestructura;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioSystem;
@@ -14,6 +13,7 @@ public class Inicio extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
     }
+    
     public void sonido(String archivo){
         try{
             clip=AudioSystem.getClip();
@@ -23,7 +23,6 @@ public class Inicio extends javax.swing.JFrame {
         }catch(Exception e){}
     
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,20 +67,21 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         sonido("clash");
-        Inicio.this.dispose();//Cierre la ventana activa
-           
+        //Cierre la ventana activa
+        Inicio.this.dispose();   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       Instrucciones objeto = new Instrucciones();//Mostrar la siguiente ventana
-       objeto.setVisible(true);//Visualizar la Ventana
-       objeto.setAlwaysOnTop(true); //Esto nos permite que el jFrame sea un modal
-       objeto.setLocationRelativeTo(Inicio.this);//Aparezca en el Centro
+       //Mostrar la siguiente ventana
+       Instrucciones objeto = new Instrucciones();
+       //Visualizar la Ventana
+       objeto.setVisible(true);
+       //Esto nos permite que el jFrame sea un modal
+       objeto.setAlwaysOnTop(true); 
+       //Aparezca en el Centro
+       objeto.setLocationRelativeTo(Inicio.this);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

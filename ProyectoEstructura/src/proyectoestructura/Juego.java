@@ -50,18 +50,20 @@ public class Juego {
         if (personaje1.getNombre().equals("m")) {
             if (personaje2.getNombre().equals("a")) {
          // Si el mago es débil con el arquero, entonces gana el arquero
-             System.out.println(personaje2.getNombre() + " gana el "
-                     + "enfrentamiento");
+             System.out.println
+                (personaje2.getNombre() + " gana el "+ "enfrentamiento");
              restaU=castilloU-personaje2.getFuerza();
              castilloU=restaU;
-             System.out.println("El castillo del Usuario tiene "+restaU+" vida.");
+             System.out.println
+                ("El castillo del Usuario tiene "+restaU+" vida.");
             } else if (personaje2.getNombre().equals("c")) {
         // Si el mago es débil con el caballero, entonces gana el caballero
-            System.out.println(personaje1.getNombre() + " gana el"
-                    + " enfrentamiento");
+            System.out.println
+                (personaje1.getNombre() + " gana el"+ " enfrentamiento");
             restaC=castilloC-personaje1.getFuerza();
              castilloC=restaC;
-             System.out.println("El castillo de la CPU tiene"+restaC+"vida.");
+             System.out.println
+                ("El castillo de la CPU tiene"+restaC+"vida.");
              } else {
             // Si el mago no es débil con ningún otro personaje, 
             //entonces gana el mago
@@ -72,18 +74,20 @@ public class Juego {
             
              if (personaje2.getNombre().equals("m")) {
         // Si el arquero es débil con el mago, entonces gana el mago
-             System.out.println(personaje1.getNombre() + " gana "
-                     + "el enfrentamiento");
+             System.out.println
+                (personaje1.getNombre() + " gana "+ "el enfrentamiento");
              restaC=castilloC-personaje1.getFuerza();
              castilloC=restaC;
-             System.out.println("El castillo del CPU tiene"+restaC+"vida.");  
+             System.out.println
+                ("El castillo del CPU tiene"+restaC+"vida.");  
             } else if (personaje2.getNombre().equals("c")) {
         // Si el arquero es débil con el caballero, entonces gana el caballero
-             System.out.println(personaje2.getNombre() + " gana "
-                     + "el enfrentamiento");
+             System.out.println
+                (personaje2.getNombre() + " gana "+ "el enfrentamiento");
              restaU=castilloU-personaje2.getFuerza();
              castilloU=restaU;
-             System.out.println("El castillo del Usuario tiene"+restaU+"vida.");
+             System.out.println
+                ("El castillo del Usuario tiene"+restaU+"vida.");
             } 
             else {
         // Si el arquero no es débil con ningún otro personaje, entonces 
@@ -93,18 +97,20 @@ public class Juego {
         } else if (personaje1.getNombre().equals("c")) {
             if (personaje2.getNombre().equals("m")) {
         // Si el caballero le gana al mago, entonces gana el caballero
-             System.out.println(personaje2.getNombre() + " gana el"
-                     + " enfrentamiento");
+             System.out.println
+                (personaje2.getNombre() + " gana el"+ " enfrentamiento");
              restaU=castilloU-personaje2.getFuerza();
              castilloU=restaU;
-             System.out.println("El castillo del Usuario tiene"+restaU+"vida.");
+             System.out.println
+                ("El castillo del Usuario tiene"+restaU+"vida.");
             } else if (personaje2.getNombre().equals("a")) {
         // Si el caballero es débil con el arquero, entonces gana el arquero
-              System.out.println(personaje1.getNombre() + " gana el "
-                      + "enfrentamiento");
+              System.out.println
+                (personaje1.getNombre() + " gana el "+ "enfrentamiento");
               restaC=castilloC-personaje1.getFuerza();
               castilloC=restaC;
-             System.out.println("El castillo de la CPU tiene"+restaC+"vida.");
+              System.out.println
+                ("El castillo de la CPU tiene"+restaC+"vida.");
             } else {
         // Si el caballero no es débil con ningún otro personaje, 
         //entonces gana el caballero
@@ -126,18 +132,20 @@ public class Juego {
         if (personaje1.getNombre().equals("m")) {
             if (personaje2.getNombre().equals("a")) {
          // Si el mago es débil con el arquero, entonces gana el arquero
-             System.out.println(personaje2.getNombre() + " gana el "
-                     + "enfrentamiento");
+             System.out.println
+                (personaje2.getNombre() + " gana el "+ "enfrentamiento");
              restaU=castilloU-personaje2.getFuerza();
              castilloU=restaU;
-             System.out.println("El castillo del Usuario tiene"+restaU+"vida.");
+             System.out.println
+                ("El castillo del Usuario tiene"+restaU+"vida.");
             } else if (personaje2.getNombre().equals("c")) {
         // Si el mago es débil con el caballero, entonces gana el caballero
-            System.out.println(personaje1.getNombre() + " gana el"
-                    + " enfrentamiento");
+            System.out.println
+                (personaje1.getNombre() + " gana el"+ " enfrentamiento");
                 restaC=castilloC-personaje1.getFuerza();
                 castilloC=restaC;
-             System.out.println("El castillo de la CPU tiene"+restaC+"vida.");
+             System.out.println
+                ("El castillo de la CPU tiene"+restaC+"vida.");
              } else {
             // Si el mago no es débil con ningún otro personaje, 
             //entonces gana el mago
@@ -147,18 +155,20 @@ public class Juego {
         } else if (personaje1.getNombre().equals("a")) {
             
              if (personaje2.getNombre().equals("m")) {
-             System.out.println(personaje1.getNombre() + " gana el "
-                     + "enfrentamiento");
+             System.out.println
+                (personaje1.getNombre() + " gana el "+ "enfrentamiento");
              restaC=castilloC-personaje1.getFuerza();
              castilloC=restaC;
-             System.out.println("El castillo de la CPU  tiene"+restaC+"vida.");
+             System.out.println
+                ("El castillo de la CPU  tiene"+restaC+"vida.");
             } else if (personaje2.getNombre().equals("c")) {
         
-             System.out.println(personaje2.getNombre() + " gana el"
-                     + " enfrentamiento");
+             System.out.println
+                (personaje2.getNombre() + " gana el"+ " enfrentamiento");
              restaU=castilloU-personaje2.getFuerza();
              castilloU=restaU;
-             System.out.println("El castillo del Usuario tiene"+restaU+"vida.");
+             System.out.println
+                ("El castillo del Usuario tiene"+restaU+"vida.");
             } 
             else {
        
@@ -167,18 +177,20 @@ public class Juego {
         } else if (personaje1.getNombre().equals("c")) {
             if (personaje2.getNombre().equals("m")) {
         
-             System.out.println(personaje2.getNombre() + " gana el "
-                     + "enfrentamiento");
+             System.out.println
+                (personaje2.getNombre() + " gana el "+ "enfrentamiento");
              restaU=castilloU-personaje2.getFuerza();
              castilloU=restaU;
-             System.out.println("El castillo del Usuario tiene"+restaU+"vida.");
+             System.out.println
+                ("El castillo del Usuario tiene"+restaU+"vida.");
             } else if (personaje2.getNombre().equals("a")) {
        
-              System.out.println(personaje1.getNombre() + " gana el "
-                      + "enfrentamiento");
+              System.out.println
+                (personaje1.getNombre() + " gana el "+ "enfrentamiento");
             restaC=castilloC-personaje1.getFuerza();
               castilloC=restaC;
-             System.out.println("El castillo de la CPU tiene"+restaC+"vida.");   
+             System.out.println
+                ("El castillo de la CPU tiene"+restaC+"vida.");   
             } else {
        
                   System.out.println("Empate en el enfrentamiento");
@@ -204,23 +216,29 @@ public class Juego {
     Cola cola=new Cola();
     int totalTropas = 0;
     int rondas=4+cont;
-    while (totalTropas < rondas) { // se pueden tener como máximo 5 tropas
-        System.out.println("*******Por favor ingresa la primera letra de la "
-                + "tropa que "
+    // se pueden tener como máximo 5 tropas
+    while (totalTropas < rondas) { 
+        System.out.println
+                ("*******Por favor ingresa la primera letra de la "+"tropa que "
                 + "desea en minuscula******");
-        System.out.println("Ingrese el tipo de tropa que desea crear: "
-                + "(mago, arquero, caballero)");
+        System.out.println
+                ("Ingrese el tipo de tropa que desea crear: ago, arquero, "
+                +"(caballero)");
         String tipoTropa = scanner.nextLine();
         System.out.println("Ingrese la cantidad de tropas que desea "
                 + "crear de tipo: "+ tipoTropa);
         int cantidadTropas = scanner.nextInt();
-        System.out.println("Elija un camino Arriba (1)/ Abajo (2)");
-        System.out.println("Escriba un numero 1 o 2:");
+        System.out.println
+                ("Elija un camino Arriba (1)/ Abajo (2)");
+        System.out.println
+                ("Escriba un numero 1 o 2:");
         int camino = scanner.nextInt();
-        scanner.nextLine(); // limpiar el buffer de entrada
+        // limpiar el buffer de entrada
+        scanner.nextLine(); 
         if (totalTropas + cantidadTropas > rondas) {
-            System.out.println("Solo se pueden tener como máximo 5 tropas. "
-                    + "Por favor ingrese una cantidad menor.");
+            System.out.println
+                ("Solo se pueden tener como máximo 5 tropas. "
+                + "Por favor ingrese una cantidad menor.");
             continue;
         }
         for (int i = 0; i < cantidadTropas; i++) {
@@ -255,7 +273,8 @@ public class Juego {
     }
     public Cola crearPersonajeAleatorio() {
     Random rand = new Random();
-    Cola cola1=new Cola();//se decidio encolar los personajes aleatorios,por eso
+    //se decidio encolar los personajes aleatorios,por eso
+    Cola cola1=new Cola();
     //el llamado a la clase cola
     int rondas=4+cont;
     int totalTropas = 0;
@@ -296,7 +315,8 @@ public class Juego {
                     debilidad = "m";
                     break;
             }
-            Personaje tropa = new Personaje(tipoTropa, fuerza, debilidad,camino);
+            Personaje tropa = new Personaje
+                (tipoTropa, fuerza, debilidad,camino);
             Nodo nodo= new Nodo(tropa);
             cola1.agregar(nodo);
             totalTropas++;
@@ -314,7 +334,8 @@ public class Juego {
         int contador = 0;
         while (actual != null && contador < cantidadNodos) {
             System.out.println("Tropa"+" "+contador+":"+
-           actual.getDato().getNombre() + " " + actual.getDato().getFuerza());
+           actual.getDato().getNombre() + " " 
+                    + actual.getDato().getFuerza());
             actual = actual.getSiguiente();
             contador++;
         }
@@ -341,7 +362,8 @@ public class Juego {
             } else {
                 System.out.print(matriz[i][j].getNombre() + "(" + 
                         matriz[i][j].getFuerza() + ")");
-                matriz[i][j] = null; // establecer la posición actual en null
+                 // establecer la posición actual en null
+                matriz[i][j] = null;
             }
         }
         System.out.println("|");
