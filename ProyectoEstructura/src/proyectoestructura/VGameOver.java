@@ -4,6 +4,8 @@ public class VGameOver extends javax.swing.JFrame {
 
     public VGameOver() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.

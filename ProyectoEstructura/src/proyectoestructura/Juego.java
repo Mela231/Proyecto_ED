@@ -13,10 +13,10 @@ public class Juego {
     private int cont=1; 
     
     public void batalla() throws InterruptedException {
-
+         
         while(castilloU>0 && castilloC>0){
          System.out.println("************************************");
-         System.out.println("***************3 TROPAS DEL CPUC**************");
+         System.out.println("**********3 TROPAS DEL CPU**********");
          System.out.println("************************************");
          Cola colaPersonajesC = crearPersonajeAleatorio();
          imprimirPrimerosNodos(colaPersonajesC,3);
@@ -197,18 +197,22 @@ public class Juego {
             }
         }  
         }
-       
-    } 
+           
+        }
         cont++;
-        }if (castilloU==0) {
+        if (castilloU<=0) {
                System.out.println("Ganador el CPU");
         }
-        else{  System.out.println("Ganador el Usuario");
+        else if(castilloC<=0) { 
+            System.out.println("Ganador el Usuario");
             
         }
+       
+    } 
         System.out.println("********FIN DEL JUEGO**********");
         VGameOver g=new VGameOver();
         g.setVisible(true);
+        
     }
   
     public Cola agregarPersonajesUsuario() {
@@ -222,8 +226,8 @@ public class Juego {
                 ("*******Por favor ingresa la primera letra de la "+"tropa que "
                 + "desea en minuscula******");
         System.out.println
-                ("Ingrese el tipo de tropa que desea crear: ago, arquero, "
-                +"(caballero)");
+                ("Ingrese el tipo de tropa que desea crear: mago, arquero, "
+                +"caballero");
         String tipoTropa = scanner.nextLine();
         System.out.println("Ingrese la cantidad de tropas que desea "
                 + "crear de tipo: "+ tipoTropa);
